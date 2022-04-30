@@ -1,0 +1,142 @@
+:root {
+    --color1:hsl(236, 72%, 79%);
+    --color2:hsl(237, 63%, 64%);
+   
+    --VeryLightGrayishBlue: hsl(240, 78%, 98%);
+    --LightGrayishBlue: hsl(234, 14%, 74%);
+    --GrayishBlue: hsl(233, 13%, 49%);
+    --DarkGrayishBlue: hsl(232, 13%, 33%);
+
+    --Dark:700;
+
+    --toggle-width: 60px;
+    --toggle-height: calc(var(--toggle-width) / 2);
+    --toggle-border-radius: calc(var(--toggle-height) / 2);
+
+    --toggle-slider-height: 26px;
+    --toggle-slider-radius: calc(var(--toggle-slider-height) / 2);
+}
+
+body{
+    background-color: #F6F6FE;
+    font-size: 15px;
+    font-family: Montserrat;
+    font-weight: var(--Dark);
+}
+
+h2,h5,h6{
+    font-weight: var(--Dark);
+}
+
+h2.display-4{
+    font-weight: var(--Dark);
+}
+
+header h2{
+    color:var(--GrayishBlue);
+}
+
+header h6{
+    color:var(--LightGrayishBlue);
+}
+
+.card{
+    color:var(--GrayishBlue);
+}
+
+.text-purple{
+    color:var(--color2);
+}
+
+.color-gradient{
+    background: linear-gradient(to right,var(--color1) 0%, var(--color2) 100%);
+}
+
+button[name="corner"]{
+    background:var(--color2);
+    color:white;
+    font-weight: 500;
+}
+
+button[name="middle"]{
+    background:white;
+    color:var(--color2);
+    font-weight: 500;
+}
+
+button[name="corner"]:hover{
+    background: white;
+    color: var(--color2);
+    border-color:var(--color2);
+    border-color: black;
+}
+
+button[name="middle"]:hover{
+    background:linear-gradient(to right,var(--color1) 0%, var(--color2) 100%);
+    color: white;
+    border-color:white;
+}
+
+.bg-top-img {
+    position: absolute;
+    z-index:-1;
+    top:0;
+    right:0;
+}
+
+.bg-bottom-img {
+    position: absolute;
+    z-index:-1;
+    left:0;
+}
+
+/* label element holding checkbox and div */
+.toggle {
+    display: inline-block;
+    cursor: pointer;
+}
+  
+/*hidding the actual checkbox*/
+.toggle__input {
+    display: none;
+}
+  
+/*div that makes up the toggle body*/
+.toggle__fill {
+    position: relative;
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    border-radius: var(--toggle-border-radius);
+    background:var(--color2);
+    transition: 0.2s;
+}
+  
+/*Inserting element(slider) after the toggle fill with no content*/ 
+.toggle__fill::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    right: 1px;
+    height: var(--toggle-slider-height);
+    width: var(--toggle-slider-height);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: var(--toggle-slider-radius);
+    transition: transform 0.2s;
+}
+
+/*move the slider on click*/
+.toggle__input:checked ~ .toggle__fill::after {
+    transform: translateX(var(--toggle-height));
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
